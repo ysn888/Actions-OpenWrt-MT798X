@@ -7,7 +7,7 @@ env:
   # REPO_URL: https://github.com/immortalwrt/immortalwrt
   # REPO_BRANCH: openwrt-25.12
   REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default
+  FEEDS_CONF: x86_64/feeds.conf.default
   CONFIG_FILE: x86_64/x86_64.config
   DIY_P1_SH: x86_64/diy-part1.sh
   DIY_P2_SH: x86_64/diy-part2.sh
