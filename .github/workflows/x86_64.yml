@@ -4,7 +4,7 @@ env:
   DEVICE_NAME: x86_64
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  FEEDS_CONF: x86_64/feeds.conf.default
+  FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: x86_64/x86_64.config
   DIY_P1_SH: x86_64/diy-part1.sh
   DIY_P2_SH: x86_64/diy-part2.sh
@@ -101,16 +101,7 @@ jobs:
         ln -sf /workdir/openwrt "$GITHUB_WORKSPACE/openwrt"
 
     # =========================================================
-    # 3. 更新并安装 Feeds
-    # =========================================================
-    - name: Update & install feeds
-      run: |
-        cd openwrt
-        ./scripts/feeds update -a
-        ./scripts/feeds install -a
-
-    # =========================================================
-    # 4. 加载自定义 Feeds
+    # 3. 加载自定义 Feeds
     # =========================================================
     - name: Load custom feeds (diy-part1.sh)
       run: |
@@ -118,6 +109,15 @@ jobs:
         chmod +x "$DIY_P1_SH"
         cd openwrt
         "$GITHUB_WORKSPACE/$DIY_P1_SH"
+
+    # =========================================================
+    # 4. 更新并安装 Feeds
+    # =========================================================
+    - name: Update & install feeds
+      run: |
+        cd openwrt
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
 
     # =========================================================
     # 5. 加载自定义配置 (diy-part2.sh)
