@@ -48,7 +48,7 @@ git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/custom
 git clone --depth=1 https://github.com/janvanstiphout/luci-app-accesscontrol.git package/custom/accesscontrol
 
 rm -rf feeds/luci/applications/luci-app-dockerman
-git clone --depth=1 https://github.com/sbwml/luci-app-dockerman.git package/custom/dockerman
+git clone --depth=1 -b openwrt-25.12 https://github.com/sbwml/luci-app-dockerman.git package/custom/dockerman
 
 # VPN
 git clone --depth=1 https://github.com/EasyTier/luci-app-easytier.git package/custom/easytier
